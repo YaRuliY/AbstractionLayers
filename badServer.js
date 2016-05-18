@@ -23,12 +23,13 @@ http.createServer(function (req, res) {
     if (req.url === '/') {
       if (req.method === 'GET') {
         res.writeHead(200, {
-          'Set-Cookie': 'mycookie=test',
+          'Set-Cookie': 'mycookie=cook',
           'Content-Type': 'text/html'
         });
         var ip = req.connection.remoteAddress;
         res.write('<h1>Welcome</h1>Your IP: ' + ip);
-        res.end('<pre>' + JSON.stringify(cookies) + '</pre>');
+        res.end('<h1>Cookie:</h1>' + '<pre>' +
+            JSON.stringify(cookies) + '</pre>');
       }
     } else if (req.url === '/person') {
       if (req.method === 'GET') {
